@@ -10,6 +10,44 @@
   </head>
 
   <body>
+    <header id="header" class="">
+      <span>Bookers</span>
+      <ul>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "Home" %>
+          </li>
+          <li>
+            <%= link_to "Users" %>
+          </li>
+          <li>
+            <%= link_to "Books" %>
+          </li>
+          <li>
+            <%= link_to "logout" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Home", root_path %>
+          </li>
+          <li>
+            <%= link_to "about", home_about_path %>
+          </li>
+          <li>
+            <%= link_to "sign up", new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "login", new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </header><!-- /header -->
+
     <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+
   </body>
 </html>
