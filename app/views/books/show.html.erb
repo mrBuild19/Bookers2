@@ -1,0 +1,26 @@
+<h1>User info</h1>
+<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
+<p>name</p>
+<%= @user.name %>
+<p>introduction</p>
+<%= @user.introduction %>
+<%= link_to "編集", edit_user_path(@user) %>
+
+<h1>New book</h1>
+<%= form_for(@book) do |f| %>
+	<p>Title</p>
+	<%= f.text_field :title %>
+	<p>Opinion</p>
+	<%= f.text_area :body %>
+	<%= f.submit 'Create Book' %>
+<% end %>
+
+<h1>Book detail</h1>
+<%= attachment_image_tag @show_book.user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
+<%= @show_book.user.name %>
+<%= @show_book.title %>
+<%= @show_book.body %>
+<% if @show_book.user.id == current_user.id %>
+	<%= link_to "edit", edit_book_path(@show_book.id) %>
+	<%= link_to "destroy", book_path(@show_book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
