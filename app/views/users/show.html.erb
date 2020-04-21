@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+
 <h1>User info</h1>
 <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
 <p>name</p>
@@ -5,6 +10,7 @@
 <p>introduction</p>
 <%= @user.introduction %>
 <%= link_to "編集", edit_user_path(@current_user) %>
+
 
 <h1>New book</h1>
 <%= form_for(@book) do |f| %>
@@ -14,6 +20,8 @@
 	<%= f.text_area :body %>
 	<%= f.submit 'Create Book' %>
 <% end %>
+
+
 <h1>Books</h1>
 <% @show_book.each do |book| %>
 	<% if @user.id == book.user_id %>
