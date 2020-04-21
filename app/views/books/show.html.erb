@@ -1,10 +1,10 @@
 <h1>User info</h1>
-<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
+<%= attachment_image_tag @show_book.user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
 <p>name</p>
-<%= @user.name %>
+<%= @show_book.user.name %>
 <p>introduction</p>
-<%= @user.introduction %>
-<%= link_to "編集", edit_user_path(@user) %>
+<%= @show_book.user.introduction %>
+<%= link_to "編集", edit_user_path(@current_user) %>
 
 <h1>New book</h1>
 <%= form_for(@book) do |f| %>
@@ -16,8 +16,8 @@
 <% end %>
 
 <h1>Book detail</h1>
-<%= attachment_image_tag @show_book.user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
-<%= @show_book.user.name %>
+<a href="/users/<%= @show_book.user.id %>"><%= attachment_image_tag @show_book.user, :profile_image, fallback: "no_image.jpg", size: "100x100" %></a>
+<%= link_to @show_book.user.name, user_path(@show_book.user.id) %>
 <%= @show_book.title %>
 <%= @show_book.body %>
 <% if @show_book.user.id == current_user.id %>

@@ -4,7 +4,7 @@
 <%= @user.name %>
 <p>introduction</p>
 <%= @user.introduction %>
-<%= link_to "編集", edit_user_path(@user) %>
+<%= link_to "編集", edit_user_path(@current_user) %>
 
 <h1>New book</h1>
 <%= form_for(@book) do |f| %>
@@ -15,3 +15,11 @@
 	<%= f.submit 'Create Book' %>
 <% end %>
 <h1>Books</h1>
+<% @show_book.each do |book| %>
+	<% if @user.id == book.user_id %>
+		<%= attachment_image_tag book.user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
+		<%= book.user.name %>
+		<%= link_to book.title, book_path(book) %>
+		<%= book.body %>
+	<% end %>
+<% end %>
