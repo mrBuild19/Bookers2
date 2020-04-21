@@ -60,13 +60,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  # ログイン後のリダイレクト先
+  # アカウント登録後のリダイレクト先
   def after_sign_in_path_for(resource)
-    users_path
-  end
-
-  # ログアウト後のリダイレクト先
-  def after_sign_out_path_for(resource)
-    home_about_path
+    user_path(current_user)
   end
 end
