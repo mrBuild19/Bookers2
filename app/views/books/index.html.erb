@@ -1,3 +1,15 @@
+<% if @book.errors.any? %>
+	<h4><%= @book.errors.count %> error prohibited this obj from being saved: </h4>
+	<ul>
+		<% @book.errors.full_messages.each do |message| %>
+			<div class="form-error">
+				<%= message %>
+			</div>
+		<% end %>
+	</ul>
+<% end %>
+
+
 <h1>User info</h1>
 <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
 <p>name</p>
