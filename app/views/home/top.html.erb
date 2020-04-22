@@ -1,12 +1,14 @@
-<% if flash[:notice] %>
-	<div class="flash">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
+
+			<% if flash[:notice] %>
+				<div class="flash">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+
+
 			<div class="welcome_top">
 				<h1>welcome to <span><i class="fas fa-book"></i>Bookers !!</h1>
 				<p>In <span><i class="fas fa-book"></i><b>Bookers</b>,<br>

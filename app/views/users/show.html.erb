@@ -1,13 +1,14 @@
-<% if flash[:notice] %>
-	<div class="flash">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-
-
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
+
+			<% if flash[:notice] %>
+				<div class="flash">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+
+
 			<h1>User info</h1>
 			<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
 			<table class="table">

@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
+
 			<h1>User info</h1>
 			<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
 			<table class="table">
@@ -16,6 +17,7 @@
 				</tbody>
 			</table>
 			<a href="/users/<%= current_user.id %>/edit" class="btn btn-default btn-block"><i class="fas fa-wrench"></i></a>
+
 
 			<h1>New book</h1>
 			<%= form_for(@book) do |f| %>
