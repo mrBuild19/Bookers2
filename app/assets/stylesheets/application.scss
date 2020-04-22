@@ -19,7 +19,12 @@
 .flash {
 	color: green;
 }
+.error_msg {
+	color: red;
+}
 
+
+/* ログイン前画面*/
 .welcome_top {
 	margin: 0 30%;
 	text-align: left;
@@ -35,4 +40,23 @@
 .Log_in {
 	margin: 0 20%;
 	text-align: left;
+}
+
+
+/* ログイン後の画面*/
+.form_name {
+	margin: 10px 0;
+}
+.form_image {
+	margin: 10px 0;
+}
+.form_introduc {
+	margin: 10px 0;
+}
+
+.form_title {
+	margin: 10px 0;
+}
+.form_body {
+	margin: 10px 0;
 }

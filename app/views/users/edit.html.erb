@@ -1,24 +1,35 @@
-<h1>User info</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1>User info</h1>
 
-
-<% if @user.errors.any? %>
-	<h4><%= @user.errors.count %> error prohibited this obj from being saved: </h4>
-	<ul>
-		<% @user.errors.full_messages.each do |message| %>
-			<div class="form-error">
-				<%= message %>
+			<div class="error_msg">
+				<% if @user.errors.any? %>
+					<h4><%= @user.errors.count %> error prohibited this obj from being saved: </h4>
+					<ul>
+						<% @user.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
 			</div>
-		<% end %>
-	</ul>
-<% end %>
 
 
-<%= form_for(@user) do |f| %>
-	<p>name</p>
-	<%= f.text_field :name %>
-	<p>Image</p>
-	<%= f.attachment_field :profile_image %>
-	<p>introduction</p>
-	<%= f.text_area :introduction %>
-	<%= f.submit 'Update User' %>
-<% end %>
+			<%= form_for(@user) do |f| %>
+				<div class="form_name">
+					<label for="user_name">Name</label><br>
+					<%= f.text_field :name, id:"user_name" %>
+				</div>
+				<div class="form_image">
+					<label for="pro_image">Image</label>
+					<%= f.attachment_field :profile_image, id:"pro_image" %>
+				</div>
+				<div class="form_introduction">
+					<label for="introduc">Introduction</label>
+					<%= f.text_area :introduction, id:"introduc" %>
+				</div>
+				<%= f.submit 'Update User' %>
+			<% end %>
+		</div>
+	</div>
+</div>
