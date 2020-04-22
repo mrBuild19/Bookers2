@@ -4,7 +4,7 @@
 <%= @user.name %>
 <p>introduction</p>
 <%= @user.introduction %>
-<%= link_to "編集", edit_user_path(@user) %>
+<a href="/users/<%= current_user.id %>/edit"><i class="fas fa-wrench"></i></a>
 
 <h1>New book</h1>
 <%= form_for(@book) do |f| %>
