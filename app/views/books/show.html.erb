@@ -8,35 +8,8 @@
 				</div>
 			<% end %>
 
-			<h1>User info</h1>
-			<%= attachment_image_tag @show_book.user, :profile_image, fallback: "no_image.jpg", size: "100x100" %>
-			<table class="table">
-				<tbody>
-					<tr>
-						<th>name</th>
-						<th><%= @show_book.user.name %></th>
-					</tr>
-					<tr>
-						<th>introduction</th>
-						<th><%= @show_book.user.introduction %></th>
-					</tr>
-				</tbody>
-			</table>
-			<a href="/users/<%= @show_book.user_id %>/edit" class="btn btn-default btn-block"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+			<%= render 'layouts/list', user: @show_book.user, book: @book %>
 
-			<h1>New book</h1>
-			<%= form_for(@book) do |f| %>
-				<div class="form-group">
-					<p><b>Title</b></p>
-					<%= f.text_field :title, class:"form-control" %>
-				</div>
-				<div class="form-group">
-					<p><b>Body</b></p>
-					<%= f.text_area :body, class:"form-control" %>
-				</div>
-				<%= f.submit 'Create Book', class:"btn btn-primary btn-block" %>
-			<% end %>
-		</div>
 
 
 		<div class="col-xs-9">
